@@ -1,7 +1,8 @@
+#include "Application.h"
 
-#include "..\my_graphics_engine\GraphicsEngine.h"
 
 int main( void )
 {
-	return 0;
+	Application app;
+	return app.run();
 }
