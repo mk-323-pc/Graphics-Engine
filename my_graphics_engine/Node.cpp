@@ -33,10 +33,6 @@ Node* Node::create()
 
 void Node::update( float aDeltaTime )
 {
-	// Debug info
-	auto name = getName();
-	//
-
 	if ( mIsVisible )
 	{
 		for ( auto child : mChildren )
