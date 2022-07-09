@@ -7,7 +7,7 @@
 class Node
 	: public Ref
 {
-
+	friend class Sprite;
 
 	bool mIsVisible;
 

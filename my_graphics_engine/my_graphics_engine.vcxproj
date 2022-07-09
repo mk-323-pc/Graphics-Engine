@@ -140,6 +140,8 @@
     <ClInclude Include="EventDispatcher.h" />
     <ClInclude Include="GraphicsEngine.h" />
     <ClInclude Include="GraphicsConsole.h" />
+    <ClInclude Include="MoveBy.h" />
+    <ClInclude Include="MoveTo.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="Scene.h" />
@@ -151,6 +153,8 @@
     <ClCompile Include="Director.cpp" />
     <ClCompile Include="EventDispatcher.cpp" />
     <ClCompile Include="GraphicsConsole.cpp" />
+    <ClCompile Include="MoveBy.cpp" />
+    <ClCompile Include="MoveTo.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Ref.cpp" />
     <ClCompile Include="Scene.cpp" />
