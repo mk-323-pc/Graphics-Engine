@@ -134,14 +134,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AutoreleasePool.h" />
     <ClInclude Include="EventDispatcher.h" />
     <ClInclude Include="GraphicsEngine.h" />
     <ClInclude Include="GraphicsConsole.h" />
+    <ClInclude Include="Ref.h" />
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AutoreleasePool.cpp" />
     <ClCompile Include="EventDispatcher.cpp" />
     <ClCompile Include="GraphicsConsole.cpp" />
+    <ClCompile Include="Ref.cpp" />
     <ClCompile Include="Types.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

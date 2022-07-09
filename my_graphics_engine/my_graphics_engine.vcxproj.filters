@@ -27,6 +27,12 @@
     <ClInclude Include="EventDispatcher.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Ref.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoreleasePool.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicsConsole.cpp">
@@ -36,6 +42,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EventDispatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ref.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoreleasePool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
