@@ -1,4 +1,4 @@
-#ifndef ROTARE_BY_H
+#ifndef ROTATE_BY_H
 #define ROTATE_BY_H
 
 #include "Action.h"

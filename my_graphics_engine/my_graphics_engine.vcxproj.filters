@@ -60,12 +60,6 @@
     <ClInclude Include="RepeatForever.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="RotateBy.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RotateTo.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="ScaleBy.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -73,6 +67,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Sequence.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateBy.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateTo.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,12 +119,6 @@
     <ClCompile Include="RepeatForever.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RotateBy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RotateTo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ScaleBy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -132,6 +126,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Sequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateBy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateTo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
