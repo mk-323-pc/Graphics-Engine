@@ -11,9 +11,9 @@ Scene::~Scene()
 
 void Scene::drawScene( float aDeltaTime )
 {
-	if ( mIsVisible )
+	if ( isVisible() )
 	{
-		for ( auto child : mChildren )
+		for ( auto child : getChildren() )
 		{
 			if ( child )
 			{

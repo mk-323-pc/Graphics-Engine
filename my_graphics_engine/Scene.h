@@ -14,6 +14,7 @@ public:
 
 	void drawScene( float aDeltaTime );
 
+	virtual void update( float aDeltaTime ) {};
 };
 
 

@@ -1,6 +1,7 @@
 #include "GraphicsConsole.h"
 #include <Windows.h>
 #include <float.h>
+#include "AutoreleasePool.h"
 
 
 GraphicsConsole::GraphicsConsole()
@@ -68,29 +69,36 @@ void GraphicsConsole::initStartState()
 
 void GraphicsConsole::run()
 {
-	auto previouseTime = glfwGetTime();
+	auto eventDispatche = EventDispatcher::getInstance();
+	auto director = Director::getInstance();
+	auto autoreleasePool = AutoreleasePool::getInstance();
 
-	while ( !glfwWindowShouldClose( mWindow ) )
+	if ( eventDispatche && director && autoreleasePool )
 	{
-		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+		auto previouseTime = glfwGetTime();
 
-		auto currentTime = glfwGetTime();
-		auto deltaTime = currentTime - previouseTime;
-
-		if ( deltaTime < FLT_EPSILON || deltaTime > mDefaultDeltaTime )
+		while ( !glfwWindowShouldClose( mWindow ) )
 		{
-			deltaTime = mDefaultDeltaTime;
+			glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+			auto currentTime = glfwGetTime();
+			auto deltaTime = currentTime - previouseTime;
+
+			if ( deltaTime < FLT_EPSILON || deltaTime > mDefaultDeltaTime )
+			{
+				deltaTime = mDefaultDeltaTime;
+			}
+			previouseTime = currentTime;
+
+			eventDispatche->update();
+			director->update( deltaTime );
+			autoreleasePool->checkPoolAndFreeMemory();
+
+			glfwSwapBuffers( mWindow );
+			glfwPollEvents();
+
+			Sleep( 1 );
 		}
-		previouseTime = currentTime;
-
-		// Main Loop
-		Director::getInstance()->update( deltaTime );
-		//
-
-		glfwSwapBuffers( mWindow );
-		glfwPollEvents();
-
-		Sleep( 1 );
 	}
 
 	glfwTerminate();

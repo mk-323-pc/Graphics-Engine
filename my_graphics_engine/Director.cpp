@@ -64,6 +64,7 @@ void Director::update( float aDeltaTime )
 {
 	if ( mCurrentScene )
 	{
+		mCurrentScene->update( aDeltaTime );
 		mCurrentScene->drawScene( aDeltaTime );
 	}
 }

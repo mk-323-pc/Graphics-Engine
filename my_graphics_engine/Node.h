@@ -8,7 +8,6 @@ class Node
 	: public Ref
 {
 
-protected:
 
 	bool mIsVisible;
 

@@ -6,6 +6,8 @@
 class MyTestScene
 	: public Scene
 {
+	Node* mNode;
+
 public:
 	MyTestScene();
 	~MyTestScene();
@@ -13,6 +15,8 @@ public:
 	static MyTestScene* create();
 
 	void init();
+
+	virtual void update( float aDeltaTime ) override;
 };
 
 #endif
