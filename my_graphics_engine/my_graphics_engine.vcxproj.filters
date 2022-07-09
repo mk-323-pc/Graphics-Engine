@@ -51,6 +51,30 @@
     <ClInclude Include="MoveTo.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="CallFunc.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DelayTime.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RepeatForever.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateBy.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateTo.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScaleBy.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScaleTo.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sequence.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicsConsole.cpp">
@@ -84,6 +108,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MoveTo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CallFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DelayTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RepeatForever.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateBy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateTo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScaleBy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScaleTo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

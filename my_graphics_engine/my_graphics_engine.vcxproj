@@ -136,6 +136,8 @@
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="AutoreleasePool.h" />
+    <ClInclude Include="CallFunc.h" />
+    <ClInclude Include="DelayTime.h" />
     <ClInclude Include="Director.h" />
     <ClInclude Include="EventDispatcher.h" />
     <ClInclude Include="GraphicsEngine.h" />
@@ -144,12 +146,20 @@
     <ClInclude Include="MoveTo.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Ref.h" />
+    <ClInclude Include="RepeatForever.h" />
+    <ClInclude Include="RotateBy.h" />
+    <ClInclude Include="RotateTo.h" />
+    <ClInclude Include="ScaleBy.h" />
+    <ClInclude Include="ScaleTo.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Sequence.h" />
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="AutoreleasePool.cpp" />
+    <ClCompile Include="CallFunc.cpp" />
+    <ClCompile Include="DelayTime.cpp" />
     <ClCompile Include="Director.cpp" />
     <ClCompile Include="EventDispatcher.cpp" />
     <ClCompile Include="GraphicsConsole.cpp" />
@@ -157,7 +167,13 @@
     <ClCompile Include="MoveTo.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Ref.cpp" />
+    <ClCompile Include="RepeatForever.cpp" />
+    <ClCompile Include="RotateBy.cpp" />
+    <ClCompile Include="RotateTo.cpp" />
+    <ClCompile Include="ScaleBy.cpp" />
+    <ClCompile Include="ScaleTo.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="Types.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
