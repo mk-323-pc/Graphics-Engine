@@ -6,6 +6,11 @@
 class MyTestScene
 	: public Scene
 {
+	enum class eActionTag
+	{
+		DEFAULT = 101
+	};
+
 	Node* mNode;
 
 public:
@@ -20,13 +25,9 @@ protected:
 
 	virtual void update( float aDeltaTime ) override;
 
-	virtual bool onLeftButtonClickDown( GLFWwindow* aWindow, const sPoint& aCursorPosition ) { return false; };
-	virtual void onLeftButtonClickUp( GLFWwindow* aWindow, const sPoint& aCursorPosition ) {};
+	virtual bool onLeftButtonClickDown( GLFWwindow* aWindow, const sPoint& aCursorPosition ) override;
+	virtual void onLeftButtonClickUp( GLFWwindow* aWindow, const sPoint& aCursorPosition ) override;
 
-	virtual bool onRightButtonClickDown( GLFWwindow* aWindow, const sPoint& aCursorPosition ) { return false; };
-	virtual void onRightButtonClickUp( GLFWwindow* aWindow, const sPoint& aCursorPosition ) {};
-
-	virtual void onCursorMoved( GLFWwindow* aWindow, const sPoint& aPreviousCursorPosition, const sPoint& aCurrentCursorPosition ) {};
 };
 
 #endif

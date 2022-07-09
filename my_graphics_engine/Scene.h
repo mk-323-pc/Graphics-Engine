@@ -2,9 +2,11 @@
 #define CLASS_SCENE_H
 
 #include "Node.h"
+#include "EventDispatcher.h"
 
 class Scene
 	: public Node
+	, public EventDispatcherListener
 {
 
 public:

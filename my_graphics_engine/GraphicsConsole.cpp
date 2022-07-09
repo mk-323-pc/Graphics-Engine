@@ -65,6 +65,7 @@ void GraphicsConsole::initStartState()
 	glTranslatef( -1.0f, -1.0f, 0.0f );
 
 	Director::getInstance()->setWindow( mWindow );
+	EventDispatcher::getInstance()->initWindowCallBack( mWindow );
 }
 
 void GraphicsConsole::run()
