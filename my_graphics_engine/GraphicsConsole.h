@@ -1,8 +1,9 @@
 #ifndef GRAPHICS_CONSOLE_H
 #define GRAPHICS_CONSOLE_H
 
-#include <GLFW/glfw3.h>
+#include "Director.h"
 #include <string>
+
 
 class GraphicsConsole
 {

@@ -136,18 +136,24 @@
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="AutoreleasePool.h" />
+    <ClInclude Include="Director.h" />
     <ClInclude Include="EventDispatcher.h" />
     <ClInclude Include="GraphicsEngine.h" />
     <ClInclude Include="GraphicsConsole.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Ref.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="AutoreleasePool.cpp" />
+    <ClCompile Include="Director.cpp" />
     <ClCompile Include="EventDispatcher.cpp" />
     <ClCompile Include="GraphicsConsole.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Ref.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Types.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -62,6 +62,8 @@ void GraphicsConsole::initStartState()
 	glLoadIdentity();
 	glOrtho( -1.0, 1.0, -1.0, 1.0, -1.0, 1.0 );
 	glTranslatef( -1.0f, -1.0f, 0.0f );
+
+	Director::getInstance()->setWindow( mWindow );
 }
 
 void GraphicsConsole::run()
@@ -82,6 +84,8 @@ void GraphicsConsole::run()
 		previouseTime = currentTime;
 
 		// Main Loop
+		Director::getInstance()->update( deltaTime );
+		//
 
 		glfwSwapBuffers( mWindow );
 		glfwPollEvents();
