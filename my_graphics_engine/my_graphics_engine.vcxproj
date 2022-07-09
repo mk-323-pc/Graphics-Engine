@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
     <ClInclude Include="AutoreleasePool.h" />
     <ClInclude Include="EventDispatcher.h" />
     <ClInclude Include="GraphicsEngine.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Action.cpp" />
     <ClCompile Include="AutoreleasePool.cpp" />
     <ClCompile Include="EventDispatcher.cpp" />
     <ClCompile Include="GraphicsConsole.cpp" />

@@ -33,6 +33,9 @@
     <ClInclude Include="AutoreleasePool.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GraphicsConsole.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AutoreleasePool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Action.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
