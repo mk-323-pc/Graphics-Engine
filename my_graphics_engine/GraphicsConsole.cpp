@@ -42,6 +42,12 @@ bool GraphicsConsole::createWindowAndMakeContext( int aWidth, int aHeight, std::
 
 	if ( mWindow )
 	{
+		int width = 0;
+		int height = 0;
+
+		glfwGetWindowSize( mWindow, &width, &height );
+		glfwSetWindowSizeLimits( mWindow, width, height, width, height );
+
 		glfwMakeContextCurrent( mWindow );
 	}
 	else
