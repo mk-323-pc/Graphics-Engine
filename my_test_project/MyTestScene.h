@@ -6,10 +6,18 @@
 class MyTestScene
 	: public Scene
 {
+	enum class eSceneActionState
+	{
+		RUNNING,
+		STOPPED
+	};
+
 	enum class eActionTag
 	{
 		DEFAULT = 101
 	};
+
+	eSceneActionState mSceneActionState;
 
 	float mMoveStep;
 

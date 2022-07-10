@@ -6,6 +6,7 @@ MyTestScene::MyTestScene()
 	, mTouchedNode( nullptr )
 	, mTopLine( nullptr )
 	, mBottomNode( nullptr )
+	, mSceneActionState( eSceneActionState::RUNNING )
 {
 }
 
@@ -309,29 +310,39 @@ void MyTestScene::onUIButtonClickEnd( Button* aButton )
 
 		if ( btnName == "stop_btn" )
 		{
-			for ( auto node : mNodesVec )
+			if ( mSceneActionState == eSceneActionState::RUNNING )
 			{
-				if ( node )
+				for ( auto node : mNodesVec )
 				{
-					node->stopAllActions();
-					node->setVisible( true );
-					node->setOpacity( 255.0f );
+					if ( node )
+					{
+						node->stopAllActions();
+						node->setVisible( true );
+						node->setOpacity( 255.0f );
+					}
 				}
+
+				mSceneActionState = eSceneActionState::STOPPED;
 			}
 		}
 		else if ( btnName == "run_btn" )
 		{
-			for ( auto node : mNodesVec )
+			if ( mSceneActionState == eSceneActionState::STOPPED )
 			{
-				if ( node )
+				for ( auto node : mNodesVec )
 				{
-					node->removeFromParent();
+					if ( node )
+					{
+						node->removeFromParent();
+					}
 				}
+
+				mNodesVec.clear();
+
+				createExampleNodes();
+
+				mSceneActionState = eSceneActionState::RUNNING;
 			}
-
-			mNodesVec.clear();
-
-			createExampleNodes();
 		}
 	}
 }
