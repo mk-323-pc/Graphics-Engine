@@ -17,6 +17,13 @@ Node::Node()
 
 Node::~Node()
 {
+	for ( auto child : mChildren )
+	{
+		if ( child )
+		{
+			child->release();
+		}
+	}
 }
 
 Node* Node::create()

@@ -26,34 +26,12 @@ MyTestScene* MyTestScene::create()
 	return result;
 }
 
-void MyTestScene::createUI()
-{
-	auto stopBtn = Button::create( "../Resources/images/stop_normal.png", "../Resources/images/stop_clicked.png" );
-	if ( stopBtn )
-	{
-		addChild( stopBtn );
-		stopBtn->setListener( this );
-
-		stopBtn->setName( "stop_btn" );
-		stopBtn->setPosition( sPoint( 320.0f, 660.0f ) );
-	}
-
-	auto runBtn = Button::create( "../Resources/images/run_normal.png", "../Resources/images/run_clicked.png" );
-	if ( runBtn )
-	{
-		addChild( runBtn );
-		runBtn->setListener( this );
-
-		runBtn->setName( "run_btn" );
-		runBtn->setPosition( sPoint( 960.0f, 660.0f ) );
-	}
-}
-
 void MyTestScene::init()
 {
 	EventDispatcher::getInstance()->addEventDispatcherListener( this );
 
 	createUI();
+	createExampleNodes();
 
 	auto top = Node::create();
 	if ( top )
@@ -79,7 +57,33 @@ void MyTestScene::init()
 
 		mBottomNode = bottom;
 	}
+}
 
+void MyTestScene::createUI()
+{
+	auto stopBtn = Button::create( "../Resources/images/stop_normal.png", "../Resources/images/stop_clicked.png" );
+	if ( stopBtn )
+	{
+		addChild( stopBtn );
+		stopBtn->setListener( this );
+
+		stopBtn->setName( "stop_btn" );
+		stopBtn->setPosition( sPoint( 320.0f, 660.0f ) );
+	}
+
+	auto runBtn = Button::create( "../Resources/images/run_normal.png", "../Resources/images/run_clicked.png" );
+	if ( runBtn )
+	{
+		addChild( runBtn );
+		runBtn->setListener( this );
+
+		runBtn->setName( "run_btn" );
+		runBtn->setPosition( sPoint( 960.0f, 660.0f ) );
+	}
+}
+
+void MyTestScene::createExampleNodes()
+{
 	auto sprite1 = Sprite::create( "../Resources/images/scale.png" );
 	if ( sprite1 )
 	{
@@ -87,7 +91,7 @@ void MyTestScene::init()
 		mNodesVec.push_back( sprite1 );
 
 		sprite1->setPosition( sPoint( 150.0f, 500.0f ) );
-		
+
 		auto scaleToMin = ScaleTo::create( 0.5f, 0.5f );
 		auto scaleToMax = ScaleTo::create( 0.5f, 1.0f );
 		auto delay = DelayTime::create( 0.5f );
@@ -317,7 +321,17 @@ void MyTestScene::onUIButtonClickEnd( Button* aButton )
 		}
 		else if ( btnName == "run_btn" )
 		{
+			for ( auto node : mNodesVec )
+			{
+				if ( node )
+				{
+					node->removeFromParent();
+				}
+			}
 
+			mNodesVec.clear();
+
+			createExampleNodes();
 		}
 	}
 }

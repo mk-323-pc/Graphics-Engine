@@ -22,15 +22,10 @@ class MyTestScene
 	std::vector< Node* > mNodesVec;
 	std::vector< Action* > mSavedActions;
 
-public:
-	MyTestScene();
-	~MyTestScene();
-
-	static MyTestScene* create();
+	void init();
 
 	void createUI();
-
-	void init();
+	void createExampleNodes();
 
 protected:
 
@@ -43,6 +38,12 @@ protected:
 
 	// ButtonListener
 	virtual void onUIButtonClickEnd( Button* aButton ) override;
+
+public:
+	MyTestScene();
+	~MyTestScene();
+
+	static MyTestScene* create();
 
 };
 
