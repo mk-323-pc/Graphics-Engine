@@ -16,6 +16,7 @@ class MyTestScene
 	sPoint mTouchOffset;
 
 	Node* mTouchedNode;
+	Node* mTopLine;
 	Node* mBottomNode;
 
 	std::vector< Node* > mNodesVec;

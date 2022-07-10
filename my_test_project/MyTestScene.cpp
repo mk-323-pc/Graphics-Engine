@@ -4,6 +4,7 @@
 MyTestScene::MyTestScene()
 	: mMoveStep( 30.0f )
 	, mTouchedNode( nullptr )
+	, mTopLine( nullptr )
 	, mBottomNode( nullptr )
 {
 }
@@ -38,6 +39,8 @@ void MyTestScene::init()
 		top->setSize( sSize( Director::getInstance()->getVisibleSize().width, 10.0f ) );
 		top->setAnchorPoint( sPoint( 0.0f, 0.5f ) );
 		top->setPosition( sPoint( 0.0f, 600.0f ) );
+
+		mTopLine = top;
 	}
 
 	auto bottom = Node::create();
@@ -255,6 +258,16 @@ void MyTestScene::onCursorMoved( const sPoint& aPreviousCursorPosition, const sP
 		if ( parent )
 		{
 			mTouchedNode->setPosition( parent->convertToNodeSpace( aCurrentCursorPosition ) + mTouchOffset );
+
+			if ( mTopLine )
+			{
+				if ( mTouchedNode->getBoundingBox().getMaxY() - mTopLine->getBoundingBox().getMinY() > FLT_EPSILON )
+				{
+					mTouchedNode->setPosition( sPoint(
+						mTouchedNode->getPosition().x,
+						mTopLine->getBoundingBox().getMinY() - mTouchedNode->getSize().height * ( 1.0f - mTouchedNode->getAnchorPoint().y ) ) );
+				}
+			}
 		}
 	}
 }
