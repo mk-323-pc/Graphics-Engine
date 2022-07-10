@@ -8,6 +8,7 @@ class Node
 	: public Ref
 {
 	friend class Sprite;
+	friend class Button;
 
 	bool mIsVisible;
 

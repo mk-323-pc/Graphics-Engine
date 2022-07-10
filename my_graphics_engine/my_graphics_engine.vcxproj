@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="AutoreleasePool.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="CallFunc.h" />
     <ClInclude Include="DelayTime.h" />
     <ClInclude Include="Director.h" />
@@ -171,6 +172,7 @@
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="AutoreleasePool.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="CallFunc.cpp" />
     <ClCompile Include="DelayTime.cpp" />
     <ClCompile Include="Director.cpp" />

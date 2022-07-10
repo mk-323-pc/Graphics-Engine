@@ -3,6 +3,8 @@
 
 #include "GraphicsConsole.h"
 
+#include "Button.h"
+
 #include "DelayTime.h"
 #include "ScaleTo.h"
 #include "ScaleBy.h"

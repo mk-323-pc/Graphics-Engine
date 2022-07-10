@@ -1,12 +1,12 @@
 #ifndef CLASS_SCENE_H
 #define CLASS_SCENE_H
 
-#include "Sprite.h"
-#include "EventDispatcher.h"
+#include "Button.h"
 
 class Scene
 	: public Node
 	, public EventDispatcherListener
+	, public ButtonListener
 {
 
 public:

@@ -20,6 +20,7 @@ class MyTestScene
 	Node* mBottomNode;
 
 	std::vector< Node* > mNodesVec;
+	std::vector< Action* > mSavedActions;
 
 public:
 	MyTestScene();
@@ -27,16 +28,21 @@ public:
 
 	static MyTestScene* create();
 
+	void createUI();
+
 	void init();
 
 protected:
 
 	virtual void update( float aDeltaTime ) override;
 
+	// EventDispatcherListener 
 	virtual bool onLeftButtonClickDown( const sPoint& aCursorPosition ) override;
 	virtual void onLeftButtonClickUp( const sPoint& aCursorPosition ) override;
-
 	virtual void onCursorMoved( const sPoint& aPreviousCursorPosition, const sPoint& aCurrentCursorPosition ) override;
+
+	// ButtonListener
+	virtual void onUIButtonClickEnd( Button* aButton ) override;
 
 };
 

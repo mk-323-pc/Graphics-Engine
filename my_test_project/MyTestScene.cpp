@@ -26,9 +26,34 @@ MyTestScene* MyTestScene::create()
 	return result;
 }
 
+void MyTestScene::createUI()
+{
+	auto stopBtn = Button::create( "../Resources/images/stop_normal.png", "../Resources/images/stop_clicked.png" );
+	if ( stopBtn )
+	{
+		addChild( stopBtn );
+		stopBtn->setListener( this );
+
+		stopBtn->setName( "stop_btn" );
+		stopBtn->setPosition( sPoint( 320.0f, 660.0f ) );
+	}
+
+	auto runBtn = Button::create( "../Resources/images/run_normal.png", "../Resources/images/run_clicked.png" );
+	if ( runBtn )
+	{
+		addChild( runBtn );
+		runBtn->setListener( this );
+
+		runBtn->setName( "run_btn" );
+		runBtn->setPosition( sPoint( 960.0f, 660.0f ) );
+	}
+}
+
 void MyTestScene::init()
 {
 	EventDispatcher::getInstance()->addEventDispatcherListener( this );
+
+	createUI();
 
 	auto top = Node::create();
 	if ( top )
@@ -268,6 +293,31 @@ void MyTestScene::onCursorMoved( const sPoint& aPreviousCursorPosition, const sP
 						mTopLine->getBoundingBox().getMinY() - mTouchedNode->getSize().height * ( 1.0f - mTouchedNode->getAnchorPoint().y ) ) );
 				}
 			}
+		}
+	}
+}
+
+void MyTestScene::onUIButtonClickEnd( Button* aButton )
+{
+	if ( aButton )
+	{
+		const auto& btnName = aButton->getName();
+
+		if ( btnName == "stop_btn" )
+		{
+			for ( auto node : mNodesVec )
+			{
+				if ( node )
+				{
+					node->stopAllActions();
+					node->setVisible( true );
+					node->setOpacity( 255.0f );
+				}
+			}
+		}
+		else if ( btnName == "run_btn" )
+		{
+
 		}
 	}
 }
