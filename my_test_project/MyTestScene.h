@@ -13,7 +13,12 @@ class MyTestScene
 
 	float mMoveStep;
 
-	Node* mNode;
+	sPoint mTouchOffset;
+
+	Node* mTouchedNode;
+	Node* mBottomNode;
+
+	std::vector< Node* > mNodesVec;
 
 public:
 	MyTestScene();
@@ -27,8 +32,10 @@ protected:
 
 	virtual void update( float aDeltaTime ) override;
 
-	virtual bool onLeftButtonClickDown( GLFWwindow* aWindow, const sPoint& aCursorPosition ) override;
-	virtual void onLeftButtonClickUp( GLFWwindow* aWindow, const sPoint& aCursorPosition ) override;
+	virtual bool onLeftButtonClickDown( const sPoint& aCursorPosition ) override;
+	virtual void onLeftButtonClickUp( const sPoint& aCursorPosition ) override;
+
+	virtual void onCursorMoved( const sPoint& aPreviousCursorPosition, const sPoint& aCurrentCursorPosition ) override;
 
 };
 

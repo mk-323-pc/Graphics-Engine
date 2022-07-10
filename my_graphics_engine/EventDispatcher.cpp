@@ -71,7 +71,7 @@ void EventDispatcher::onMouseButtonCallBack( GLFWwindow* aWindow, int aButton, i
 				{
 					if ( listener )
 					{
-						if ( listener->onLeftButtonClickDown( aWindow, cursorPosition ) )
+						if ( listener->onLeftButtonClickDown( cursorPosition ) )
 						{
 							mEventDispatcherActiveListeners.push_back( listener );
 						}
@@ -84,7 +84,7 @@ void EventDispatcher::onMouseButtonCallBack( GLFWwindow* aWindow, int aButton, i
 				{
 					if ( listener )
 					{
-						listener->onLeftButtonClickUp( aWindow, cursorPosition );
+						listener->onLeftButtonClickUp( cursorPosition );
 					}
 				}
 
@@ -99,7 +99,7 @@ void EventDispatcher::onMouseButtonCallBack( GLFWwindow* aWindow, int aButton, i
 				{
 					if ( listener )
 					{
-						if ( listener->onRightButtonClickDown( aWindow, cursorPosition ) )
+						if ( listener->onRightButtonClickDown( cursorPosition ) )
 						{
 							mEventDispatcherActiveListeners.push_back( listener );
 						}
@@ -112,7 +112,7 @@ void EventDispatcher::onMouseButtonCallBack( GLFWwindow* aWindow, int aButton, i
 				{
 					if ( listener )
 					{
-						listener->onRightButtonClickUp( aWindow, cursorPosition );
+						listener->onRightButtonClickUp( cursorPosition );
 					}
 				}
 
@@ -151,7 +151,7 @@ void EventDispatcher::update()
 			{
 				if ( listener )
 				{
-					listener->onCursorMoved( mWindow, mPreviousCursorPosition, cursorPosition );
+					listener->onCursorMoved( mPreviousCursorPosition, cursorPosition );
 				}
 			}
 

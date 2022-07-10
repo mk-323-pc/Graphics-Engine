@@ -11,13 +11,13 @@ class EventDispatcherListener
 {
 public:
 
-	virtual bool onLeftButtonClickDown( GLFWwindow* aWindow, const sPoint& aCursorPosition ) { return false; };
-	virtual void onLeftButtonClickUp( GLFWwindow* aWindow, const sPoint& aCursorPosition ) {};
+	virtual bool onLeftButtonClickDown( const sPoint& aCursorPosition ) { return false; };
+	virtual void onLeftButtonClickUp( const sPoint& aCursorPosition ) {};
 
-	virtual bool onRightButtonClickDown( GLFWwindow* aWindow, const sPoint& aCursorPosition ) { return false; };
-	virtual void onRightButtonClickUp( GLFWwindow* aWindow, const sPoint& aCursorPosition ) {};
+	virtual bool onRightButtonClickDown( const sPoint& aCursorPosition ) { return false; };
+	virtual void onRightButtonClickUp( const sPoint& aCursorPosition ) {};
 
-	virtual void onCursorMoved( GLFWwindow* aWindow, const sPoint& aPreviousCursorPosition, const sPoint& aCurrentCursorPosition ) {};
+	virtual void onCursorMoved( const sPoint& aPreviousCursorPosition, const sPoint& aCurrentCursorPosition ) {};
 };
 
 

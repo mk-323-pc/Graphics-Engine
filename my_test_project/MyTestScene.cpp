@@ -3,6 +3,8 @@
 
 MyTestScene::MyTestScene()
 	: mMoveStep( 30.0f )
+	, mTouchedNode( nullptr )
+	, mBottomNode( nullptr )
 {
 }
 
@@ -36,13 +38,14 @@ void MyTestScene::init()
 		node->setSize( sSize( 300.0f, 10.0f ) );
 		node->setPosition( sPoint( 0.0f, 50.0f ) );
 
-		mNode = node;
+		mBottomNode = node;
 	}
 
 	auto node1 = Node::create();
 	if ( node1 )
 	{
 		addChild( node1 );
+		mNodesVec.push_back( node1 );
 
 		node1->setColor( sColor3f::RED );
 		node1->setSize( sSize( 100.0f, 100.0f ) );
@@ -66,6 +69,7 @@ void MyTestScene::init()
 	if ( node2 )
 	{
 		addChild( node2 );
+		mNodesVec.push_back( node2 );
 
 		node2->setColor( sColor3f::BLUE );
 		node2->setSize( sSize( 100.0f, 100.0f ) );
@@ -89,6 +93,7 @@ void MyTestScene::init()
 	if ( node3 )
 	{
 		addChild( node3 );
+		mNodesVec.push_back( node3 );
 
 		node3->setColor( sColor3f::YELLOW );
 		node3->setSize( sSize( 100.0f, 100.0f ) );
@@ -116,6 +121,7 @@ void MyTestScene::init()
 	if ( node4 )
 	{
 		addChild( node4 );
+		mNodesVec.push_back( node4 );
 
 		node4->setColor( sColor3f::GREEN );
 		node4->setSize( sSize( 100.0f, 50.0f ) );
@@ -140,6 +146,7 @@ void MyTestScene::init()
 	if ( node5 )
 	{
 		addChild( node5 );
+		mNodesVec.push_back( node5 );
 
 		node5->setColor( sColor3f::PINK );
 		node5->setSize( sSize( 100.0f, 50.0f ) );
@@ -164,6 +171,7 @@ void MyTestScene::init()
 	if ( node6 )
 	{
 		addChild( node6 );
+		mNodesVec.push_back( node6 );
 
 		node6->setColor( sColor3f::BLACK );
 		node6->setSize( sSize( 150.0f, 150.0f ) );
@@ -188,23 +196,67 @@ void MyTestScene::init()
 
 void MyTestScene::update( float aDeltaTime )
 {
-	if ( mNode )
+	if ( mBottomNode )
 	{
-		mNode->setPosition( mNode->getPosition() + sPoint( mMoveStep, 0.0f ) );
+		mBottomNode->setPosition( mBottomNode->getPosition() + sPoint( mMoveStep, 0.0f ) );
 
-		if ( mNode->getPosition().x > Director::getInstance()->getVisibleSize().width + mNode->getSize().width / 2.0f )
+		if ( mBottomNode->getPosition().x > Director::getInstance()->getVisibleSize().width + mBottomNode->getSize().width / 2.0f )
 		{
-			mNode->setPosition( sPoint( 0.0f - mNode->getSize().width / 2.0f, mNode->getPosition().y ) );
+			mBottomNode->setPosition( sPoint( 0.0f - mBottomNode->getSize().width / 2.0f, mBottomNode->getPosition().y ) );
 		}
 	}
 }
 
-bool MyTestScene::onLeftButtonClickDown( GLFWwindow* aWindow, const sPoint& aCursorPosition )
+bool MyTestScene::onLeftButtonClickDown( const sPoint& aCursorPosition )
 {
-	return true;
+	auto result = false;
+
+	for ( auto node : mNodesVec )
+	{
+		if ( node )
+		{
+			auto parent = node->getParent();
+			if ( parent )
+			{
+				auto location = parent->convertToNodeSpace( aCursorPosition );
+				
+				if ( node->getBoundingBox().containsPoint( location ) )
+				{
+					mTouchedNode = node;
+
+					mTouchedNode->stopActionByTag( static_cast< int >( eActionTag::DEFAULT ) );
+					mTouchedNode->setVisible( true );
+					mTouchedNode->setOpacity( 255.0f );
+					
+					mTouchOffset = mTouchedNode->getPosition() - location;
+
+					result = true;
+					break;
+				}
+			}
+		}
+	}
+
+	return result;
 }
 
-void MyTestScene::onLeftButtonClickUp( GLFWwindow* aWindow, const sPoint& aCursorPosition )
+void MyTestScene::onLeftButtonClickUp( const sPoint& aCursorPosition )
 {
+	if ( mTouchedNode )
+	{
+		mTouchedNode = nullptr;
+		mTouchOffset = { 0.0f, 0.0f };
+	}
+}
 
+void MyTestScene::onCursorMoved( const sPoint& aPreviousCursorPosition, const sPoint& aCurrentCursorPosition )
+{
+	if ( mTouchedNode )
+	{
+		auto parent = mTouchedNode->getParent();
+		if ( parent )
+		{
+			mTouchedNode->setPosition( parent->convertToNodeSpace( aCurrentCursorPosition ) + mTouchOffset );
+		}
+	}
 }
