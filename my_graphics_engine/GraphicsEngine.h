@@ -10,6 +10,7 @@
 #include "RotateBy.h"
 #include "MoveTo.h"
 #include "MoveBy.h"
+#include "TintTo.h"
 #include "CallFunc.h"
 #include "Sequence.h"
 #include "RepeatForever.h"

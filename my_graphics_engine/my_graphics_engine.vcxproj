@@ -153,6 +153,7 @@
     <ClInclude Include="ScaleTo.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sequence.h" />
+    <ClInclude Include="TintTo.h" />
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +175,7 @@
     <ClCompile Include="ScaleTo.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sequence.cpp" />
+    <ClCompile Include="TintTo.cpp" />
     <ClCompile Include="Types.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -11,6 +11,8 @@ class MyTestScene
 		DEFAULT = 101
 	};
 
+	float mMoveStep;
+
 	Node* mNode;
 
 public:

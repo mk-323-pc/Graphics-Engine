@@ -62,6 +62,11 @@ struct sColor3f
 	sColor3f( const sColor3f& aColor );
 
 	void operator = ( const sColor3f& aColor );
+	sColor3f operator - ( const sColor3f& aColor ) const;
+	sColor3f operator + ( const sColor3f& aColor ) const;
+	sColor3f operator / ( const sColor3f& aColor ) const;
+	sColor3f operator / ( float aDenominator ) const;
+	sColor3f operator * ( const sColor3f& aColor ) const;
 
 	static const sColor3f RED;
 	static const sColor3f GREEN;
@@ -70,6 +75,7 @@ struct sColor3f
 	static const sColor3f WHITE;
 	static const sColor3f GRAY;
 	static const sColor3f BLACK;
+	static const sColor3f PINK;
 
 };
 

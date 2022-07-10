@@ -83,6 +83,51 @@ void sColor3f::operator = ( const sColor3f& aColor )
 	blue = aColor.blue;
 }
 
+sColor3f sColor3f::operator - ( const sColor3f& aColor ) const
+{
+	return sColor3f(
+		red - aColor.red,
+		green - aColor.green,
+		blue - aColor.blue
+	);
+}
+
+sColor3f sColor3f::operator + ( const sColor3f& aColor ) const
+{
+	return sColor3f(
+		red + aColor.red,
+		green + aColor.green,
+		blue + aColor.blue
+	);
+}
+
+sColor3f sColor3f::operator / ( const sColor3f& aColor ) const
+{
+	return sColor3f(
+		red / aColor.red,
+		green / aColor.green,
+		blue / aColor.blue
+	);
+}
+
+sColor3f sColor3f::operator / ( float aDenominator ) const
+{
+	return sColor3f(
+		red / aDenominator,
+		green / aDenominator,
+		blue / aDenominator
+	);
+}
+
+sColor3f sColor3f::operator * ( const sColor3f& aColor ) const
+{
+	return sColor3f(
+		red * aColor.red,
+		green * aColor.green,
+		blue * aColor.blue
+	);
+}
+
 const sColor3f sColor3f::RED( 255.0f, 0.0f, 0.0f );
 const sColor3f sColor3f::GREEN( 0.0f, 255.0f, 0.0f );
 const sColor3f sColor3f::BLUE( 0.0f, 0.0f, 255.0f );
@@ -90,6 +135,7 @@ const sColor3f sColor3f::YELLOW( 255.0f, 255.0f, 0.0f );
 const sColor3f sColor3f::WHITE( 255.0f, 255.0f, 255.0f );
 const sColor3f sColor3f::GRAY( 150.0f, 150.0f, 150.0f );
 const sColor3f sColor3f::BLACK( 0.0f, 0.0f, 0.0f );
+const sColor3f sColor3f::PINK( 255.0f, 120.0f, 203.0f );
 
 
 // Rect
