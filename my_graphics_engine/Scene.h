@@ -1,7 +1,7 @@
 #ifndef CLASS_SCENE_H
 #define CLASS_SCENE_H
 
-#include "Node.h"
+#include "Sprite.h"
 #include "EventDispatcher.h"
 
 class Scene

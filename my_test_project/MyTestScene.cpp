@@ -29,27 +29,36 @@ void MyTestScene::init()
 {
 	EventDispatcher::getInstance()->addEventDispatcherListener( this );
 
-	auto node = Node::create();
-	if ( node )
+	auto top = Node::create();
+	if ( top )
 	{
-		addChild( node );
+		addChild( top );
 
-		node->setColor( sColor3f::GREEN );
-		node->setSize( sSize( 300.0f, 10.0f ) );
-		node->setPosition( sPoint( 0.0f, 50.0f ) );
-
-		mBottomNode = node;
+		top->setColor( sColor3f::GRAY );
+		top->setSize( sSize( Director::getInstance()->getVisibleSize().width, 10.0f ) );
+		top->setAnchorPoint( sPoint( 0.0f, 0.5f ) );
+		top->setPosition( sPoint( 0.0f, 600.0f ) );
 	}
 
-	auto node1 = Node::create();
-	if ( node1 )
+	auto bottom = Node::create();
+	if ( bottom )
 	{
-		addChild( node1 );
-		mNodesVec.push_back( node1 );
+		addChild( bottom );
 
-		node1->setColor( sColor3f::RED );
-		node1->setSize( sSize( 100.0f, 100.0f ) );
-		node1->setPosition( sPoint( 150.0f, 600.0f ) );
+		bottom->setColor( sColor3f::GREEN );
+		bottom->setSize( sSize( 300.0f, 10.0f ) );
+		bottom->setPosition( sPoint( 0.0f, 50.0f ) );
+
+		mBottomNode = bottom;
+	}
+
+	auto sprite1 = Sprite::create( "../Resources/images/scale.png" );
+	if ( sprite1 )
+	{
+		addChild( sprite1 );
+		mNodesVec.push_back( sprite1 );
+
+		sprite1->setPosition( sPoint( 150.0f, 500.0f ) );
 		
 		auto scaleToMin = ScaleTo::create( 0.5f, 0.5f );
 		auto scaleToMax = ScaleTo::create( 0.5f, 1.0f );
@@ -62,18 +71,16 @@ void MyTestScene::init()
 			repeat->setTag( static_cast< int >( eActionTag::DEFAULT ) );
 		}
 
-		node1->runAction( repeat );
+		sprite1->runAction( repeat );
 	}
 
-	auto node2 = Node::create();
-	if ( node2 )
+	auto sprite2 = Sprite::create( "../Resources/images/rotate_blue.png" );
+	if ( sprite2 )
 	{
-		addChild( node2 );
-		mNodesVec.push_back( node2 );
+		addChild( sprite2 );
+		mNodesVec.push_back( sprite2 );
 
-		node2->setColor( sColor3f::BLUE );
-		node2->setSize( sSize( 100.0f, 100.0f ) );
-		node2->setPosition( sPoint( 150.0f, 400.0f ) );
+		sprite2->setPosition( sPoint( 150.0f, 300.0f ) );
 
 		auto toRight = RotateBy::create( 0.5f, 90.0f );
 		auto toLeft = RotateBy::create( 0.5f, -90.0f );
@@ -86,27 +93,24 @@ void MyTestScene::init()
 			repeat->setTag( static_cast< int >( eActionTag::DEFAULT ) );
 		}
 
-		node2->runAction( repeat );
+		sprite2->runAction( repeat );
 	}
 
-	auto node3 = Node::create();
-	if ( node3 )
+	auto sprite3 = Sprite::create( "../Resources/images/rotate_yellow.png" );
+	if ( sprite3 )
 	{
-		addChild( node3 );
-		mNodesVec.push_back( node3 );
+		addChild( sprite3 );
+		mNodesVec.push_back( sprite3 );
 
-		node3->setColor( sColor3f::YELLOW );
-		node3->setSize( sSize( 100.0f, 100.0f ) );
-		node3->setPosition( sPoint( 350.0f, 400.0f ) );
+		sprite3->setPosition( sPoint( 550.0f, 300.0f ) );
+		sprite3->setAnchorPoint( sPoint( 0.0f, 0.0f ) );
 
-		auto toRight = RotateBy::create( 2.0f, 720.0f );
-		auto toLeft = RotateBy::create( 2.0f, -720.0f );
-		auto call1 = CallFunc::create( [ this, node3 ] () { node3->setVisible( false ); } );
-		auto call2 = CallFunc::create( [ this, node3 ] () { node3->setVisible( true ); } );
+		auto toRight = RotateBy::create( 0.5f, 360.0f );
+		auto toLeft = RotateBy::create( 0.5f, -360.0f );
 		auto delay1 = DelayTime::create( 0.3f );
 		auto delay2 = DelayTime::create( 0.3f );
 
-		auto seq = Sequence::create( toRight, call1, delay1, call2, toLeft, delay2, nullptr );
+		auto seq = Sequence::create( toRight, delay1, toLeft, delay2, nullptr );
 
 		auto repeat = RepeatForever::create( seq );
 		if ( repeat )
@@ -114,18 +118,16 @@ void MyTestScene::init()
 			repeat->setTag( static_cast< int >( eActionTag::DEFAULT ) );
 		}
 
-		node3->runAction( repeat );
+		sprite3->runAction( repeat );
 	}
 
-	auto node4 = Node::create();
-	if ( node4 )
+	auto sprite4 = Sprite::create( "../Resources/images/move.png" );
+	if ( sprite4 )
 	{
-		addChild( node4 );
-		mNodesVec.push_back( node4 );
+		addChild( sprite4 );
+		mNodesVec.push_back( sprite4 );
 
-		node4->setColor( sColor3f::GREEN );
-		node4->setSize( sSize( 100.0f, 50.0f ) );
-		node4->setPosition( sPoint( 700.0f, 600.0f ) );
+		sprite4->setPosition( sPoint( 900.0f, 500.0f ) );
 
 		auto toRight = MoveBy::create( 2.0f, sPoint( 200.0f, 0.0f ) );
 		auto toLeft = MoveBy::create( 2.0f, sPoint( -200.0f, 0.0f ) );
@@ -139,21 +141,19 @@ void MyTestScene::init()
 			repeat->setTag( static_cast< int >( eActionTag::DEFAULT ) );
 		}
 
-		node4->runAction( repeat );
+		sprite4->runAction( repeat );
 	}
 
-	auto node5 = Node::create();
-	if ( node5 )
+	auto sprite5 = Sprite::create( "../Resources/images/callfunc.png" );
+	if ( sprite5 )
 	{
-		addChild( node5 );
-		mNodesVec.push_back( node5 );
+		addChild( sprite5 );
+		mNodesVec.push_back( sprite5 );
 
-		node5->setColor( sColor3f::PINK );
-		node5->setSize( sSize( 100.0f, 50.0f ) );
-		node5->setPosition( sPoint( 350.0f, 600.0f ) );
+		sprite5->setPosition( sPoint( 550.0f, 500.0f ) );
 
-		auto call1 = CallFunc::create( [ this, node5 ] () {node5->setVisible( false ); } );
-		auto call2 = CallFunc::create( [ this, node5 ] () {node5->setVisible( true ); } );
+		auto call1 = CallFunc::create( [ this, sprite5 ] () { sprite5->setVisible( false ); } );
+		auto call2 = CallFunc::create( [ this, sprite5 ] () { sprite5->setVisible( true ); } );
 		auto delay1 = DelayTime::create( 0.1f );
 		auto delay2 = DelayTime::create( 0.2f );
 
@@ -164,18 +164,16 @@ void MyTestScene::init()
 			repeat->setTag( static_cast< int >( eActionTag::DEFAULT ) );
 		}
 
-		node5->runAction( repeat );
+		sprite5->runAction( repeat );
 	}
 
-	auto node6 = Node::create();
-	if ( node6 )
+	auto sprite6 = Sprite::create( "../Resources/images/tint.png" );
+	if ( sprite6 )
 	{
-		addChild( node6 );
-		mNodesVec.push_back( node6 );
+		addChild( sprite6 );
+		mNodesVec.push_back( sprite6 );
 
-		node6->setColor( sColor3f::BLACK );
-		node6->setSize( sSize( 150.0f, 150.0f ) );
-		node6->setPosition( sPoint( 700.0f, 400.0f ) );
+		sprite6->setPosition( sPoint( 900.0f, 300.0f ) );
 
 		auto tint1 = TintTo::create( 1.0f, sColor3f::RED );
 		auto tint2 = TintTo::create( 1.0f, sColor3f::GREEN );
@@ -190,7 +188,7 @@ void MyTestScene::init()
 			repeat->setTag( static_cast< int >( eActionTag::DEFAULT ) );
 		}
 
-		node6->runAction( repeat );
+		sprite6->runAction( repeat );
 	}
 }
 

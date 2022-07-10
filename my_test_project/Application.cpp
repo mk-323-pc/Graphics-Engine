@@ -11,8 +11,6 @@ Application::~Application()
 
 int Application::run()
 {
-	Director::getInstance()->setScene( MyTestScene::create() );
-
 	auto console = GraphicsConsole::getInstance();
 	if ( console )
 	{
@@ -27,6 +25,9 @@ int Application::run()
 		}
 
 		console->initStartState();
+
+		Director::getInstance()->setScene( MyTestScene::create() );
+
 		console->run();
 	}
 
