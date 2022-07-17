@@ -57,20 +57,8 @@ bool Sprite::initWithFile( const std::string& aFileName )
 
 void Sprite::render()
 {
-	//Debug info
-	auto name = getName();
-	//
-
 	if ( mIsVisible )
 	{
-		/*for ( auto child : mChildren )
-		{
-			if ( child )
-			{
-				child->render();
-			}
-		}*/
-
 		float texCoord[] = { 0.0f, 1.0f,	1.0f, 1.0f,		1.0f, 0.0f,		0.0f, 0.0f };
 		float vertex[] =
 		{
