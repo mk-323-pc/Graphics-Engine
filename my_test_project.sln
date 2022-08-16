@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1684
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "my_graphics_engine", "my_graphics_engine\my_graphics_engine.vcxproj", "{B19B62B1-FA21-47A9-A234-8810317FD5B1}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "my_test_project", "my_test_project\my_test_project.vcxproj", "{598F8317-BB86-40A6-A561-A8063D041A5A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "my_graphics_engine", "my_graphics_engine\my_graphics_engine.vcxproj", "{B19B62B1-FA21-47A9-A234-8810317FD5B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
