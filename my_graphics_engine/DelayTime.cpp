@@ -11,11 +11,19 @@ DelayTime::~DelayTime()
 
 DelayTime* DelayTime::create( float aDuration )
 {
-	DelayTime* result = new DelayTime;
+	DelayTime* result = new ( std::nothrow ) DelayTime();
 
-	if ( result && result->init( aDuration ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aDuration ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

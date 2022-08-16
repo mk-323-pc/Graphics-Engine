@@ -15,11 +15,19 @@ ScaleBy::~ScaleBy()
 
 ScaleBy* ScaleBy::create( float aDuration, float aDeltaScale )
 {
-	ScaleBy* result = new ScaleBy;
+	ScaleBy* result = new ( std::nothrow ) ScaleBy();
 
-	if ( result && result->init( aDuration, aDeltaScale ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aDuration, aDeltaScale ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

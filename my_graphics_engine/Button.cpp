@@ -15,7 +15,7 @@ Button::~Button()
 
 Button* Button::create( const std::string& aFileNameNormal, const std::string& aFileNameClicked, const std::string& aFileNameDisabled )
 {
-	Button* result = new Button;
+	Button* result = new ( std::nothrow ) Button();
 
 	if ( result )
 	{

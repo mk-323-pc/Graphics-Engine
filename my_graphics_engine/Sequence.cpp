@@ -18,11 +18,19 @@ Sequence::~Sequence()
 
 Sequence* Sequence::createWithTwoActions( Action* aFirstAction, Action* aSecondAction )
 {
-	Sequence* result = new Sequence;
+	Sequence* result = new ( std::nothrow ) Sequence();
 
-	if ( result && result->initWithTwoActions( aFirstAction, aSecondAction ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->initWithTwoActions( aFirstAction, aSecondAction ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;
@@ -51,12 +59,10 @@ bool Sequence::initWithTwoActions( Action* aFirstAction, Action* aSecondAction )
 
 Sequence* Sequence::create( Action* aAction, ... )
 {
-	Sequence* result = new Sequence;
+	Sequence* result = new ( std::nothrow )Sequence();
 
 	if ( result )
 	{
-		result->autorelease();
-
 		std::vector< Action* > actions;
 
 		auto argument = &aAction;
@@ -67,7 +73,15 @@ Sequence* Sequence::create( Action* aAction, ... )
 			argument += 1;
 		}
 
-		result->init( actions );
+		if ( result->init( actions ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

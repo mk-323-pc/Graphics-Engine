@@ -11,11 +11,19 @@ MoveTo::~MoveTo()
 
 MoveTo* MoveTo::create( float aDuration, const sPoint& aPosition )
 {
-	MoveTo* result = new MoveTo;
+	MoveTo* result = new ( std::nothrow ) MoveTo();
 
-	if ( result && result->init( aDuration, aPosition ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aDuration, aPosition ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

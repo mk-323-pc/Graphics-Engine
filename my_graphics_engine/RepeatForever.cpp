@@ -1,4 +1,5 @@
 #include "RepeatForever.h"
+#include "Node.h"
 
 
 RepeatForever::RepeatForever()
@@ -16,11 +17,19 @@ RepeatForever::~RepeatForever()
 
 RepeatForever* RepeatForever::create( Action* aAction )
 {
-	RepeatForever* result = new RepeatForever;
+	RepeatForever* result = new ( std::nothrow ) RepeatForever();
 
-	if ( result && result->init( aAction ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aAction ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

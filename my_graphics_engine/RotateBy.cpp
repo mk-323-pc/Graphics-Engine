@@ -14,11 +14,19 @@ RotateBy::~RotateBy()
 
 RotateBy* RotateBy::create( float aDuration, float aDeltaRotation )
 {
-	RotateBy* result = new RotateBy;
+	RotateBy* result = new ( std::nothrow ) RotateBy();
 
-	if ( result && result->init( aDuration, aDeltaRotation ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aDuration, aDeltaRotation ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

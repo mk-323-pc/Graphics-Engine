@@ -19,11 +19,19 @@ bool TintTo::init( float aDuration, sColor3f aColor )
 
 TintTo* TintTo::create( float aDuration, sColor3f aColor )
 {
-	TintTo* result = new TintTo;
+	TintTo* result = new ( std::nothrow ) TintTo();
 
-	if ( result && result->init( aDuration, aColor ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aDuration, aColor ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

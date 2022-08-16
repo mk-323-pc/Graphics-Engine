@@ -12,11 +12,19 @@ RotateTo::~RotateTo()
 
 RotateTo* RotateTo::create( float aDuration, float aRotation )
 {
-	RotateTo* result = new RotateTo;
+	RotateTo* result = new ( std::nothrow ) RotateTo();
 
-	if ( result && result->init( aDuration, aRotation ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aDuration, aRotation ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

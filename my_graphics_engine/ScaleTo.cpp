@@ -20,11 +20,19 @@ bool ScaleTo::init( float aDuration, float aScale )
 
 ScaleTo* ScaleTo::create( float aDuration, float aScale )
 {
-	ScaleTo* result = new ScaleTo;
+	ScaleTo* result = new ( std::nothrow ) ScaleTo();
 
-	if ( result && result->init( aDuration, aScale ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aDuration, aScale ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

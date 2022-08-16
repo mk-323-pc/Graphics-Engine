@@ -11,11 +11,19 @@ MoveBy::~MoveBy()
 
 MoveBy* MoveBy::create( float aDuration, const sPoint& aDeltaPosition )
 {
-	MoveBy* result = new MoveBy;
+	MoveBy* result = new ( std::nothrow ) MoveBy();
 
-	if ( result && result->init( aDuration, aDeltaPosition ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aDuration, aDeltaPosition ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

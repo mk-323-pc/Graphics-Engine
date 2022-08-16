@@ -11,11 +11,19 @@ CallFunc::~CallFunc()
 
 CallFunc* CallFunc::create( std::function< void() > aCallBack )
 {
-	CallFunc* result = new CallFunc;
+	CallFunc* result = new ( std::nothrow ) CallFunc();
 
-	if ( result && result->init( aCallBack ) )
+	if ( result )
 	{
-		result->autorelease();
+		if ( result->init( aCallBack ) )
+		{
+			result->autorelease();
+		}
+		else
+		{
+			delete result;
+			result = nullptr;
+		}
 	}
 
 	return result;

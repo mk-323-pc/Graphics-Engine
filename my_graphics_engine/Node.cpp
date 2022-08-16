@@ -28,7 +28,7 @@ Node::~Node()
 
 Node* Node::create()
 {
-	Node* result = new Node;
+	Node* result = new ( std::nothrow ) Node();
 
 	if ( result )
 	{

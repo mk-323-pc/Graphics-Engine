@@ -14,7 +14,7 @@ Sprite::~Sprite()
 
 Sprite* Sprite::create( const std::string& aFileName )
 {
-	Sprite* result = new Sprite;
+	Sprite* result = new ( std::nothrow ) Sprite();
 
 	if ( result )
 	{
