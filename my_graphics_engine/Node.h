@@ -3,6 +3,7 @@
 
 #include "Action.h"
 #include <vector>
+#include <string>
 
 class Node
 	: public Ref
